@@ -591,7 +591,7 @@ footer{background:var(--navy-800);border-top:1px solid var(--navy-600);padding:6
     <div class="stats">
       <div><b data-count="5">0</b><span data-t="sYears">Years+</span></div>
       <div><b data-count="4">0</b><span data-t="sCampus">Campuses</span></div>
-      <div><b data-count="18">0</b><span data-t="sFac">Faculty</span></div>
+      <div><b data-count="21">0</b><span data-t="sFac">Faculty</span></div>
       <div><b data-count="4.6" data-dec="1">0</b><span data-t="sRate">Avg Rating</span></div>
     </div>
   </div>
@@ -808,16 +808,19 @@ const SWK={
   {n:"Sir Sohail Aziz",s:"Chemistry",l:"A Level"},
   {n:"Sir Farhan Khan",s:"Chemistry",l:"O/A Levels"},
   {n:"Sir Umar Soni",s:"Biology",l:"O Level & IGCSE"},
-  {n:"Sir Javed Khan",s:"Biology",l:"A Level"},
+  {n:"Sir Javed Khan Afridi",s:"Biology",l:"A Level"},
   {n:"Sir M. Shoaib Munaf",s:"Biology",l:"A Level"},
+  {n:"Sir Afham Saya",s:"Computer Science",l:"O Level & IGCSE · A Level"},
   {n:"Sir Minhas Rupsi",s:"Computer Science",l:"O Level & IGCSE · A Level"},
   {n:"Sir Rohail Ahmed",s:"Accounting & Business",l:"O/A Levels"},
-  {n:"Sir Sohail Ahmad",s:"Business Studies",l:"O/A Levels"},
+  {n:"Sir Ammar Samana",s:"Accounting & Business",l:"A Level"},
+  {n:"Sir Sohail Ahmed",s:"Business Studies",l:"O/A Levels"},
   {n:"Sir Osama Mosani",s:"Business Studies",l:"O/A Levels · GCE-IGCSE"},
   {n:"Sir Murtaza Zai",s:"Economics",l:"O/A Levels"},
   {n:"Sir Daniyal Aslam",s:"Economics",l:"O/A Levels · GCE-IGCSE"},
   {n:"Sir Azeem Iqbal",s:"Sociology & Psychology",l:"O/A Levels"},
-  {n:"Miss Jameel Ansari",s:"Urdu",l:"O Level & IGCSE · A Level"},
+  {n:"Sir Jameel Ansari",s:"Urdu",l:"O Level & IGCSE · A Level"},
+  {n:"Miss Anna Malik",s:"English Language",l:"O/A Levels · GCE-IGCSE"},
   {n:"Sir Umer Sheikh",s:"Islamiyat",l:"O Level & IGCSE"}
  ],
  batches:[{n:"Group A",s:"closed"},{n:"Group B",s:"closed"},{n:"Group C",s:"open",d:"Started 4 July"}]
@@ -1244,16 +1247,17 @@ const KB=[
  {k:['phone','number','call','contact','rabta'],a:()=>`You can reach ${C().short} on ${C().phones.join(' or ')}. <a href="tel:${C().phone.replace(/-/g,'')}">Tap to call</a>.`},
  {k:['timing','time','hours','open','close','schedule'],a:()=>`${C().short}: ${C().hours}.`},
  {k:['campus','campuses','branch','branches'],a:()=>`We have four campuses: Gulshan-e-Iqbal, Gulistan-e-Jauhar, North Nazimabad and Bahadurabad. Use the campus bar at the top to switch — the whole page updates.`},
- {k:['teacher','faculty','teaches','who teach','sir','miss'],a:()=>`We have 18 specialist faculty. Our star teachers are Sir Waqas Khan (Maths), Sir Mehboob Khan (Physics) and Sir Junaid Akhtar (Pakistan Studies). Try the "Find Your Teacher" search for any subject.`},
+ {k:['teacher','faculty','teaches','who teach','sir','miss'],a:()=>`We have 21 specialist faculty. Our star teachers are Sir Waqas Khan (Maths), Sir Mehboob Khan (Physics) and Sir Junaid Akhtar (Pakistan Studies). Try the "Find Your Teacher" search for any subject.`},
  {k:['math','maths','mathematics','algebra'],a:()=>`Mathematics is taught by Sir Waqas Khan — O Level / IGCSE and A Level / Edexcel.`},
  {k:['physics'],a:()=>`Physics is taught by Sir Mehboob Khan — O Level & IGCSE and A Level.`},
  {k:['chemistry'],a:()=>`Chemistry: Sir Usman Khan (O Level & IGCSE), Sir Sohail Aziz (A Level) and Sir Farhan Khan (O/A Levels).`},
- {k:['biology','bio'],a:()=>`Biology: Sir Umar Soni (O Level & IGCSE), Sir Javed Khan and Sir M. Shoaib Munaf (A Level).`},
- {k:['computer','cs','computing','ict'],a:()=>`Computer Science is taught by Sir Minhas Rupsi — O Level & IGCSE and A Level.`},
- {k:['account','accounts','accounting'],a:()=>`Accounting is taught by Sir Rohail Ahmed for O and A Levels.`},
- {k:['business'],a:()=>`Business Studies: Sir Rohail Ahmed, Sir Sohail Ahmad and Sir Osama Mosani.`},
+ {k:['biology','bio'],a:()=>`Biology: Sir Umar Soni (O Level & IGCSE), Sir Javed Khan Afridi and Sir M. Shoaib Munaf (A Level).`},
+ {k:['computer','cs','computing','ict'],a:()=>`Computer Science: Sir Afham Saya and Sir Minhas Rupsi — O Level & IGCSE and A Level.`},
+ {k:['account','accounts','accounting'],a:()=>`Accounting: Sir Rohail Ahmed (O/A Levels) and Sir Ammar Samana (A Level).`},
+ {k:['business'],a:()=>`Business Studies: Sir Rohail Ahmed, Sir Sohail Ahmed and Sir Osama Mosani.`},
  {k:['economics','eco'],a:()=>`Economics: Sir Murtaza Zai and Sir Daniyal Aslam, for O/A Levels and GCE-IGCSE.`},
- {k:['urdu'],a:()=>`Urdu is taught by Miss Jameel Ansari — O Level & IGCSE and A Level.`},
+ {k:['english','eng','language'],a:()=>`English Language is taught by Miss Anna Malik — O/A Levels and GCE-IGCSE.`},
+ {k:['urdu'],a:()=>`Urdu is taught by Sir Jameel Ansari — O Level & IGCSE and A Level.`},
  {k:['islamiyat','islamiat'],a:()=>`Islamiyat is taught by Sir Umer Sheikh — O Level & IGCSE.`},
  {k:['pakistan studies','pak studies','pakstudies'],a:()=>`Pakistan Studies is taught by Sir Junaid Akhtar — O Level & IGCSE. He's one of our best-known faculty.`},
  {k:['sociology','psychology'],a:()=>`Sociology & Psychology are taught by Sir Azeem Iqbal for O/A Levels.`},
