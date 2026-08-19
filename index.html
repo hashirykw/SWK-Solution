@@ -227,6 +227,91 @@ h1 em{font-style:normal;color:var(--gold-500)}
 .fcard .b small{color:#8FA4C0;font-size:.68rem;display:block;margin-top:5px;line-height:1.4}
 .nores{color:#8FA4C0;padding:26px;text-align:center;grid-column:1/-1}
 
+/* ---------- clickable teacher cards ---------- */
+button.fcard,button.star{font:inherit;color:inherit;text-align:start;width:100%;display:block;
+  cursor:pointer;-webkit-tap-highlight-color:transparent}
+button.fcard:focus-visible,button.star:focus-visible{outline:2px solid var(--gold-500);outline-offset:3px}
+.fcard .ph,.star .ph{position:relative}
+.fcard .peek,.star .peek{position:absolute;inset:auto 0 0 0;padding:9px 0;text-align:center;
+  font-family:'Sora';font-size:.62rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--navy-900);background:var(--gold-500);
+  transform:translateY(102%);transition:transform .42s var(--ease)}
+.fcard:hover .peek,.star:hover .peek,
+.fcard:focus-visible .peek,.star:focus-visible .peek{transform:translateY(0)}
+
+/* ---------- teacher profile modal (glass) ---------- */
+#tmodal{position:fixed;inset:0;z-index:960;display:grid;place-items:center;padding:20px;
+  opacity:0;visibility:hidden;transition:opacity .42s var(--ease),visibility .42s var(--ease)}
+#tmodal.open{opacity:1;visibility:visible}
+#tmodal .scrim{position:absolute;inset:0;background:rgba(5,12,25,.58);
+  backdrop-filter:blur(16px) saturate(120%);-webkit-backdrop-filter:blur(16px) saturate(120%)}
+.tm-panel{position:relative;width:min(720px,100%);max-height:88vh;overflow-y:auto;overflow-x:hidden;
+  border-radius:26px;will-change:transform,opacity;
+  background:linear-gradient(158deg,rgba(35,64,107,.46),rgba(15,35,64,.30) 58%,rgba(12,27,51,.40));
+  backdrop-filter:blur(30px) saturate(150%);-webkit-backdrop-filter:blur(30px) saturate(150%);
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 44px 100px -34px rgba(0,0,0,.8),
+             inset 0 1px 0 rgba(255,255,255,.18),
+             inset 0 0 60px rgba(240,179,35,.05);
+  scrollbar-width:thin;scrollbar-color:rgba(240,179,35,.35) transparent}
+.tm-panel::-webkit-scrollbar{width:7px}
+.tm-panel::-webkit-scrollbar-thumb{background:rgba(240,179,35,.32);border-radius:99px}
+.tm-panel::-webkit-scrollbar-track{background:transparent}
+.tm-x{position:absolute;top:16px;inset-inline-end:16px;z-index:4;width:40px;height:40px;border-radius:50%;
+  display:grid;place-items:center;color:var(--cream);cursor:pointer;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(10px);transition:.3s var(--ease)}
+.tm-x:hover{background:var(--gold-500);color:var(--navy-900);transform:rotate(90deg)}
+.tm-x svg{width:17px;height:17px;fill:currentColor}
+
+.tm-head{display:flex;gap:20px;align-items:center;padding:30px 30px 24px;
+  border-bottom:1px solid rgba(255,255,255,.09);position:relative}
+.tm-head::after{content:'';position:absolute;inset-inline:30px;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,var(--gold-500),transparent 70%);opacity:.5}
+.tm-por{flex:0 0 96px;width:96px;height:96px;border-radius:20px;display:grid;place-items:center;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);overflow:hidden}
+.tm-por svg{width:56%;opacity:.5}
+.tm-id{min-width:0}
+.tm-id h3{font-size:1.42rem;letter-spacing:-.02em;margin-bottom:7px}
+.tm-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tm-tag{font-family:'Sora';font-size:.66rem;font-weight:700;letter-spacing:.05em;padding:5px 11px;
+  border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);color:#C6D5E8}
+.tm-tag.gold{background:rgba(240,179,35,.16);border-color:rgba(240,179,35,.42);color:var(--gold-300)}
+.tm-tag.star{background:var(--gold-500);border-color:var(--gold-500);color:var(--navy-900)}
+
+.tm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:22px 30px 6px}
+.tm-stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);border-radius:16px;
+  padding:16px 14px;text-align:center;transition:.35s var(--ease)}
+.tm-stat:hover{background:rgba(240,179,35,.09);border-color:rgba(240,179,35,.35);transform:translateY(-3px)}
+.tm-stat b{display:block;font-family:'Sora';font-size:1.5rem;color:var(--gold-500);line-height:1.1}
+.tm-stat span{display:block;font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;
+  color:#8FA4C0;margin-top:6px}
+
+.tm-sec{padding:22px 30px 0}
+.tm-sec h4{font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:var(--gold-500);
+  margin-bottom:11px;font-weight:800}
+.tm-sec p{font-size:.92rem;line-height:1.75;color:#C6D5E8}
+.tm-list{list-style:none;display:grid;gap:9px}
+.tm-list li{position:relative;padding-inline-start:22px;font-size:.87rem;color:#C6D5E8;line-height:1.6}
+.tm-list li::before{content:'';position:absolute;inset-inline-start:0;top:.62em;width:7px;height:7px;
+  border-radius:50%;background:var(--gold-500);box-shadow:0 0 10px rgba(240,179,35,.6)}
+
+.tm-foot{display:flex;flex-wrap:wrap;gap:11px;padding:24px 30px 16px}
+.tm-foot .btn{flex:1;min-width:170px;justify-content:center;display:inline-flex;align-items:center;gap:8px}
+.tm-note{padding:0 30px 26px;font-size:.7rem;color:#7A8CA6;line-height:1.6}
+@media(max-width:640px){
+  .tm-head{flex-direction:column;text-align:center;padding:28px 20px 22px;gap:15px}
+  .tm-head::after{inset-inline:20px}
+  .tm-tags{justify-content:center}
+  .tm-stats{grid-template-columns:1fr;padding:20px 20px 4px}
+  .tm-stat{display:flex;align-items:center;justify-content:space-between;text-align:start;padding:13px 17px}
+  .tm-stat span{margin-top:0}
+  .tm-sec,.tm-foot,.tm-note{padding-inline:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .tm-panel,.tm-stat,.tm-x,.fcard .peek,.star .peek{transition:none!important}
+}
+
 /* ---------- batches ---------- */
 .bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:32px}
 .bcard{border:1px solid var(--navy-500);border-radius:18px;padding:26px;background:var(--navy-700);position:relative}
@@ -454,6 +539,17 @@ footer{background:var(--navy-800);border-top:1px solid var(--navy-600);padding:6
   <div class="cgrid" id="cmodalGrid"></div>
   <button class="btn btn-ghost" style="margin-top:18px;width:100%" id="skipCampus" data-t="skip">Skip — show me Gulshan</button>
 </div></div>
+
+<!-- TEACHER PROFILE MODAL (glass) -->
+<div id="tmodal" role="dialog" aria-modal="true" aria-labelledby="tmName">
+  <div class="scrim" data-tclose></div>
+  <div class="tm-panel" id="tmPanel">
+    <button class="tm-x" id="tmClose" aria-label="Close profile">
+      <svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg>
+    </button>
+    <div id="tmBody"></div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section id="hero"><div class="wrap grid">
@@ -713,6 +809,131 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 /* portrait placeholder */
 const PH=`<svg viewBox="0 0 100 100"><path d="M50 8C30 8 22 22 24 38c1 10 8 16 8 16-4 4-6 10-6 10s6-4 14-6c6-1 12-6 14-12 2 8-2 16-10 20-10 5-16 12-18 22h68c-2-14-12-24-26-28 12-4 20-14 22-28C92 22 74 8 50 8z" fill="#F0B323"/></svg>`;
 
+/* ============================================================
+   TEACHER PROFILE — PLACEHOLDER CONTENT
+   ------------------------------------------------------------
+   Every field below is demo copy so the popup can be reviewed.
+   Replace FAC_BIO / FAC_HL and the numbers in facDetail() with
+   the real bios, qualifications and stats from the academy.
+   To hard-code a single teacher, add the keys directly on their
+   object in SWK.faculty (e.g. bio:"…", exp:12) — facDetail()
+   always prefers a real value over the generated placeholder.
+   ============================================================ */
+SWK.faculty.forEach((f,i)=>f.i=i);
+
+const hashOf=s=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0};
+
+const FAC_BIO=f=>`${f.n} leads ${f.s} at SWK Solutions, working with ${f.l} candidates across all four campuses. Classes are built around examiner mark-scheme language rather than textbook summaries — every topic closes with timed past-paper practice and individually annotated scripts returned the following session. Weaker students are pulled into a separate doubt-clearing slot at no extra charge. <em>(Placeholder biography — final copy pending from the academy.)</em>`;
+
+const FAC_HL=f=>[
+ `Full past-paper coverage for ${f.s}, worked question by question`,
+ `Weekly graded assessment with written examiner-style feedback`,
+ `Separate doubt-clearing slot before every board examination series`,
+ `Revision notes and topical compilations shared with each batch`
+];
+
+function facDetail(f){
+ const h=hashOf(f.n);
+ const exp=f.exp ?? (7+h%13);                        // 7–19 years
+ return {
+  exp,
+  students: f.students ?? Math.round(exp*(58+(h>>>3)%34)/50)*50,   // keeps the count in step with the years
+  grade:    f.grade    ?? (78+(h>>>7)%15),            // 78–92 %
+  qual:     f.qual     ?? 'Qualification to be confirmed',
+  bio:      f.bio      ?? FAC_BIO(f),
+  hl:       f.hl       ?? FAC_HL(f)
+ };
+}
+
+/* ---------- open / close the glass profile popup ---------- */
+let TM_LAST=null;
+const TM_RM=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function openTeacher(i){
+ const f=SWK.faculty[i]; if(!f)return;
+ const d=facDetail(f), c=C();
+ const levels=f.l.split('·').map(x=>x.trim()).filter(Boolean);
+ TM_LAST=document.activeElement;
+
+ $('#tmBody').innerHTML=`
+  <div class="tm-head" data-tmr>
+   <div class="tm-por">${PH}</div>
+   <div class="tm-id">
+    <h3 id="tmName">${f.n}</h3>
+    <div class="tm-tags">
+     <span class="tm-tag gold">${f.s}</span>
+     ${f.star?'<span class="tm-tag star">STAR FACULTY</span>':''}
+     ${levels.map(l=>`<span class="tm-tag">${l}</span>`).join('')}
+    </div>
+   </div>
+  </div>
+
+  <div class="tm-stats" data-tmr>
+   <div class="tm-stat"><b>${d.exp}+</b><span>Years teaching</span></div>
+   <div class="tm-stat"><b>${d.students}+</b><span>Students taught</span></div>
+   <div class="tm-stat"><b>${d.grade}%</b><span>A* – A rate</span></div>
+  </div>
+
+  <div class="tm-sec" data-tmr>
+   <h4>About</h4>
+   <p>${d.bio}</p>
+  </div>
+
+  <div class="tm-sec" data-tmr>
+   <h4>How the class runs</h4>
+   <ul class="tm-list">${d.hl.map(x=>`<li>${x}</li>`).join('')}</ul>
+  </div>
+
+  <div class="tm-sec" data-tmr>
+   <h4>Details</h4>
+   <ul class="tm-list">
+    <li><b>Qualification —</b> ${d.qual}</li>
+    <li><b>Levels —</b> ${f.l}</li>
+    <li><b>Currently showing for —</b> ${c.short} Campus</li>
+    <li><b>Timings —</b> ${c.hours||'On request'}</li>
+   </ul>
+  </div>
+
+  <div class="tm-foot" data-tmr>
+   <a class="btn btn-gold" target="_blank" rel="noopener"
+      href="https://wa.me/${c.wa}?text=${encodeURIComponent(`Assalam-o-Alaikum, I'd like to ask about ${f.s} classes with ${f.n} at ${c.short} campus.`)}">
+      Ask about this teacher</a>
+   <button class="btn btn-ghost" onclick="closeTeacher();findTeacher('${f.s}')">See all ${f.s} teachers</button>
+  </div>
+
+  <p class="tm-note" data-tmr>⚠ Demo note: biography, experience, student count and grade figures on this
+   profile are placeholder content and are awaiting confirmation from the client.</p>`;
+
+ const m=$('#tmodal'), p=$('#tmPanel');
+ m.classList.add('open');
+ document.body.style.overflow='hidden';
+ p.scrollTop=0;
+
+ if(!TM_RM()&&window.gsap){
+  gsap.killTweensOf([p,'#tmBody [data-tmr]']);
+  gsap.fromTo(p,{y:38,scale:.955,opacity:0},{y:0,scale:1,opacity:1,duration:.66,ease:'power3.out'});
+  gsap.fromTo('#tmBody [data-tmr]',{y:20,opacity:0},
+   {y:0,opacity:1,duration:.55,stagger:.06,ease:'power2.out',delay:.14,clearProps:'transform'});
+ }else{p.style.opacity=1;p.style.transform='none'}
+
+ setTimeout(()=>$('#tmClose').focus(),60);
+}
+
+function closeTeacher(){
+ const m=$('#tmodal'), p=$('#tmPanel');
+ if(!m.classList.contains('open'))return;
+ const done=()=>{m.classList.remove('open');document.body.style.overflow='';
+   if(TM_LAST&&TM_LAST.focus)TM_LAST.focus();TM_LAST=null};
+ if(!TM_RM()&&window.gsap){
+  gsap.killTweensOf(p);
+  gsap.to(p,{y:22,scale:.97,opacity:0,duration:.34,ease:'power2.in',onComplete:done});
+ }else done();
+}
+
+$('#tmClose').onclick=closeTeacher;
+$('#tmodal').addEventListener('click',e=>{if(e.target.hasAttribute('data-tclose'))closeTeacher()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeTeacher()});
+
 /* ============ PRELOADER ============ */
 let p=0;const pt=setInterval(()=>{p+=Math.random()*13;if(p>=100){p=100;clearInterval(pt);
  setTimeout(()=>{$('#pre').classList.add('done');heroIn();if(!CUR)setTimeout(()=>$('#cmodal').classList.add('open'),450);},420);}
@@ -750,10 +971,11 @@ function renderPills(){
 }
 function renderStars(){
  $('#starGrid').innerHTML=SWK.faculty.filter(f=>f.star).map((f,i)=>`
-  <div class="star rv"><div class="ph" data-i="0${i+1}">${PH}</div>
+  <button class="star rv" onclick="openTeacher(${f.i})" aria-label="View profile of ${f.n}">
+   <div class="ph" data-i="0${i+1}">${PH}<span class="peek">View profile</span></div>
    <span class="crown">STAR</span>
    <div class="info"><b>${f.n}</b><span class="sub">${f.s}</span><small>${f.l}</small></div>
-  </div>`).join('');
+  </button>`).join('');
 }
 function renderSubjects(){
  $('#sgrid').innerHTML=SUBJECTS.map(s=>{
@@ -771,9 +993,10 @@ function renderFaculty(q=''){
  q=q.toLowerCase().trim();
  const list=SWK.faculty.filter(f=>!q||f.n.toLowerCase().includes(q)||f.s.toLowerCase().includes(q)||f.l.toLowerCase().includes(q));
  $('#fgrid').innerHTML=list.length?list.map(f=>`
-  <div class="fcard"><div class="ph">${PH}</div>
+  <button class="fcard" onclick="openTeacher(${f.i})" aria-label="View profile of ${f.n}">
+   <div class="ph">${PH}<span class="peek">View profile</span></div>
    <div class="b"><b>${f.n}</b><span class="sub">${f.s}</span><small>${f.l}</small>
-   <small style="color:var(--gold-700)">${C().short}</small></div></div>`).join('')
+   <small style="color:var(--gold-700)">${C().short}</small></div></button>`).join('')
   : `<div class="nores">No teacher found for "<b>${q}</b>". Try Physics, Accounts, Urdu…</div>`;
 }
 function renderChips(){
@@ -1033,7 +1256,7 @@ addEventListener('mousemove',e=>{
  const c=$('#cur');c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';c.style.opacity=1;
 });
 document.addEventListener('mouseover',e=>{
- $('#cur').classList.toggle('hot',!!e.target.closest('a,button,input,.scard,.ccard,.fcard'));
+ $('#cur').classList.toggle('hot',!!e.target.closest('a,button,input,.scard,.ccard,.fcard,.star'));
 });
 
 /* reveal */
@@ -1054,37 +1277,48 @@ function initThree(){
    cam.position.z=6.2;
    const rd=new THREE.WebGLRenderer({antialias:true,alpha:true});
    rd.setSize(W,H);rd.setPixelRatio(Math.min(devicePixelRatio,2));el.appendChild(rd.domElement);
-   // shield shape
+   // ── crest silhouette traced from the real SWK logo alpha channel ──
+   // pairs of x,y in Three units; the extruded body IS the logo outline,
+   // so there is no leftover slab showing past the crest.
+   const OUT=[-1.704,1.368,-1.704,0.264,-1.68,0.264,-1.668,0.252,-1.668,0.144,-1.656,0.132,-1.656,0.06,-1.644,0.048,-1.644,-0.012,-1.632,-0.024,-1.632,-0.072,-1.62,-0.084,-1.62,-0.12,-1.596,-0.168,-1.596,-0.204,-1.572,-0.24,-1.548,-0.336,-1.488,-0.456,-1.488,-0.48,-1.38,-0.696,-1.356,-0.72,-1.308,-0.816,-1.284,-0.84,-1.26,-0.888,-1.224,-0.924,-1.224,-0.936,-1.188,-0.972,-1.188,-0.984,-1.152,-1.02,-1.152,-1.032,-1.08,-1.104,-1.08,-1.116,-0.888,-1.308,-0.876,-1.308,-0.756,-1.416,-0.708,-1.44,-0.672,-1.476,-0.66,-1.476,-0.564,-1.548,-0.48,-1.584,-0.456,-1.608,-0.336,-1.668,-0.312,-1.668,-0.252,-1.704,-0.228,-1.704,-0.192,-1.728,-0.168,-1.728,-0.132,-1.752,-0.108,-1.752,-0.096,-1.764,-0.096,-1.788,0.084,-1.788,0.084,-1.764,0.096,-1.752,0.12,-1.752,0.156,-1.728,0.18,-1.728,0.216,-1.704,0.24,-1.704,0.3,-1.668,0.324,-1.668,0.492,-1.584,0.612,-1.5,0.648,-1.488,0.684,-1.452,0.696,-1.452,0.78,-1.38,0.792,-1.38,0.864,-1.308,0.876,-1.308,1.068,-1.116,1.068,-1.104,1.14,-1.032,1.14,-1.02,1.248,-0.888,1.284,-0.816,1.368,-0.696,1.488,-0.456,1.488,-0.432,1.512,-0.396,1.512,-0.372,1.536,-0.336,1.56,-0.24,1.584,-0.204,1.584,-0.18,1.608,-0.132,1.608,-0.084,1.62,-0.072,1.62,-0.036,1.632,-0.024,1.632,0.036,1.644,0.048,1.656,0.228,1.668,0.24,1.692,0.24,1.692,1.368,1.656,1.368,1.404,1.5,1.38,1.5,1.32,1.536,1.26,1.548,1.224,1.572,1.164,1.584,1.128,1.608,1.056,1.62,1.02,1.644,0.984,1.644,0.936,1.668,0.9,1.668,0.888,1.68,0.852,1.68,0.84,1.692,0.756,1.704,0.744,1.716,0.696,1.716,0.684,1.728,0.636,1.728,0.624,1.74,0.576,1.74,0.564,1.752,0.504,1.752,0.492,1.764,0.408,1.764,0.396,1.776,0.396,1.8,-0.42,1.8,-0.42,1.776,-0.432,1.764,-0.504,1.764,-0.516,1.752,-0.576,1.752,-0.588,1.74,-0.636,1.74,-0.648,1.728,-0.756,1.716,-0.768,1.704,-0.804,1.704,-0.816,1.692,-0.852,1.692,-0.864,1.68,-0.948,1.668,-0.996,1.644,-1.032,1.644,-1.044,1.632,-1.14,1.608,-1.176,1.584,-1.272,1.56,-1.392,1.5,-1.416,1.5,-1.668,1.368];
+   const HW=1.704, HH=1.800, DEP=.30;   // half-width / half-height of the source PNG in units
    const sh=new THREE.Shape();
-   sh.moveTo(-1.35,1.7);sh.lineTo(1.35,1.7);
-   sh.bezierCurveTo(1.45,.2,1.1,-1.1,0,-1.95);
-   sh.bezierCurveTo(-1.1,-1.1,-1.45,.2,-1.35,1.7);
-   const geo=new THREE.ExtrudeGeometry(sh,{depth:.34,bevelEnabled:true,bevelSize:.07,bevelThickness:.07,bevelSegments:4,curveSegments:26});
-   geo.center();
+   sh.moveTo(OUT[0],OUT[1]);
+   for(let i=2;i<OUT.length;i+=2)sh.lineTo(OUT[i],OUT[i+1]);
+   sh.closePath();
+   const geo=new THREE.ExtrudeGeometry(sh,{depth:DEP,bevelEnabled:false,curveSegments:1});
+   // map the crest texture onto the front/back caps 1:1 with the source PNG
+   const pa2=geo.attributes.position, uv2=geo.attributes.uv;
+   for(let i=0;i<pa2.count;i++){
+     uv2.setXY(i,(pa2.getX(i)+HW)/(HW*2),(pa2.getY(i)+HH)/(HH*2));
+   }
+   uv2.needsUpdate=true;
+   geo.translate(0,0,-DEP/2);
+
    const grp=new THREE.Group();
-   // extruded shield body — becomes the rim/thickness behind the crest
-   grp.add(new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:0x0C1B33,metalness:.6,roughness:.34})));
-   const edges=new THREE.LineSegments(new THREE.EdgesGeometry(geo,22),
-     new THREE.LineBasicMaterial({color:0xF0B323}));
-   grp.add(edges);
 
    // real SWK crest textured onto the front and back faces
    const tex=new THREE.TextureLoader().load($('#fallback img').src,()=>{});
    tex.anisotropy=rd.capabilities.getMaxAnisotropy?rd.capabilities.getMaxAnisotropy():4;
    if(THREE.sRGBEncoding)tex.encoding=THREE.sRGBEncoding;
    const crestMat=new THREE.MeshStandardMaterial({
-     map:tex,transparent:true,alphaTest:.12,metalness:.35,roughness:.42,
-     emissive:0xF0B323,emissiveMap:tex,emissiveIntensity:.16,side:THREE.DoubleSide});
-   const bb=new THREE.Box3().setFromObject(grp);
-   const sz=bb.getSize(new THREE.Vector3());
-   const cw=sz.x*0.96, ch=cw; // logo is square
-   const front=new THREE.Mesh(new THREE.PlaneGeometry(cw,ch),crestMat);
-   front.position.set(0,sz.y*0.02,sz.z/2+0.012);
-   grp.add(front);
-   const back=front.clone();
-   back.position.z=-(sz.z/2+0.012);
-   back.rotation.y=Math.PI;
-   grp.add(back);
+     map:tex,transparent:false,alphaTest:.1,metalness:.30,roughness:.44,
+     emissive:0xF0B323,emissiveMap:tex,emissiveIntensity:.16});
+   // extruded side wall — reads as the metal thickness of the crest
+   const rimMat=new THREE.MeshStandardMaterial({color:0x0C1B33,metalness:.75,roughness:.30});
+   // group 0 = front + back caps, group 1 = side wall
+   const body=new THREE.Mesh(geo,[crestMat,rimMat]);
+   grp.add(body);
+
+   // gold outline hugging the crest edge, front and back
+   const lp=[];
+   for(let i=0;i<OUT.length;i+=2)lp.push(new THREE.Vector3(OUT[i],OUT[i+1],0));
+   const lg=new THREE.BufferGeometry().setFromPoints(lp);
+   const lm=new THREE.LineBasicMaterial({color:0xF0B323,transparent:true,opacity:.9});
+   const lineF=new THREE.LineLoop(lg,lm);lineF.position.z=DEP/2+.004;grp.add(lineF);
+   const lineB=new THREE.LineLoop(lg,lm);lineB.position.z=-DEP/2-.004;grp.add(lineB);
+
+
 
    sc.add(grp);
    // particles
